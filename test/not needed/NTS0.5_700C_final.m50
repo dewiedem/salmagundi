@@ -1,0 +1,113 @@
+Version Jana2006
+title Na0.5TiS2 at 700 C
+------------------------------------------------------------
+phase NTS
+cell 3.487166 3.487166 21.363544 90 90 120
+esdcell 0.00007 0.00007 0.000756 0 0 0
+spgroup R-3m 166 5
+lattice R
+symmetry x y z
+symmetry -y x-y z
+symmetry -x+y -x z
+symmetry y x -z
+symmetry x-y -y -z
+symmetry -x -x+y -z
+symmetry -x -y -z
+symmetry y -x+y -z
+symmetry x-y x -z
+symmetry -y -x z
+symmetry -x+y y z
+symmetry x x-y z
+unitsnumb 3
+chemform Na0.5 S2 Ti
+atlist Na0.5 S2 Ti
+atom Na atradius 1.91 color 249220060
+atom S atradius 1.04 color 255250000
+atom Ti atradius 1.47 color 120202255
+------------------------------------------------------------
+phase Fe
+cell 3.640623 3.640623 3.640623 90 90 90
+esdcell 0.000122 0.000122 0.000122 0 0 0
+spgroup Fm-3m 225 7
+lattice F
+symmetry x y z
+symmetry -x -y z
+symmetry -x y -z
+symmetry x -y -z
+symmetry z x y
+symmetry z -x -y
+symmetry -z -x y
+symmetry -z x -y
+symmetry y z x
+symmetry -y z -x
+symmetry y -z -x
+symmetry -y -z x
+symmetry y x -z
+symmetry -y -x -z
+symmetry y -x z
+symmetry -y x z
+symmetry x z -y
+symmetry -x z y
+symmetry -x -z -y
+symmetry x -z y
+symmetry z y -x
+symmetry z -y x
+symmetry -z y x
+symmetry -z -y -x
+symmetry -x -y -z
+symmetry x y -z
+symmetry x -y z
+symmetry -x y z
+symmetry -z -x -y
+symmetry -z x y
+symmetry z x -y
+symmetry z -x y
+symmetry -y -z -x
+symmetry y -z x
+symmetry -y z x
+symmetry y z -x
+symmetry -y -x z
+symmetry y x z
+symmetry -y x -z
+symmetry y -x -z
+symmetry -x -z y
+symmetry x -z -y
+symmetry x z y
+symmetry -x z -y
+symmetry -z -y x
+symmetry -z y -x
+symmetry z -y -x
+symmetry z y x
+unitsnumb 4
+chemform Fe
+atlist Fe
+atom Fe atradius 1.26 color 181113000
+------------------------------------------------------------
+roundmethod 1
+end
+*******************************************************************************
+contour NTS
+  plane Plane#1
+    pntplane 1 Na1
+    pntplane 3 1 0 0
+    pntplane 3 0 1 0
+    dltplane 0.05
+    scpplane 4 4 4
+    shfplane 2 2 2
+    xtpcurve 1
+    pntcurve 0.0066 0.0066 -0.1
+    pntcurve 1.7392 0.9923 -0.1
+  endplane
+end contour
+dist NTS
+  angles 1 lsttype 1 expdmax 10
+  selfirst Ti1 Na1
+  selsecnd S1
+end dist
+fourier NTS
+  addbord 0 maptype 6 step 0.05
+end fourier
+refine
+  cycles 20 autkeys 0 dolebail 1 damp 0.75 convlim 0.01
+  lebailph 0 1
+end refine

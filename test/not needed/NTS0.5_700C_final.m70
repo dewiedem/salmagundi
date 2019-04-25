@@ -1,0 +1,94 @@
+
+#=======================================================================
+# Refine
+#=======================================================================
+
+_exptl_crystal_F_000                     37.799
+_refine_ls_weighting_scheme              sigma
+_refine_ls_number_constraints            0
+_refine_ls_number_restraints             0
+_refine_ls_R_factor_gt                   0.0324
+_refine_ls_wR_factor_gt                  0.0340
+_refine_ls_R_factor_all                  0.0414
+_refine_ls_wR_factor_all                 0.0347
+_refine_ls_wR_factor_ref                 0.0347
+_pd_proc_ls_prof_R_factor                0.0177
+_pd_proc_ls_prof_wR_factor               0.0230
+_pd_proc_ls_prof_wR_expected             0.0175
+_refine_ls_number_parameters             28
+_refine_ls_goodness_of_fit_all           1.31
+_refine_ls_goodness_of_fit_ref           1.31
+_refine_ls_shift/su_max                  0.0055
+_refine_ls_shift/su_mean                 0.0013
+
+
+#=======================================================================
+# Fourier
+#=======================================================================
+
+_refine_diff_density_max                 0.13
+_refine_diff_density_min                 -0.17
+
+#=======================================================================
+# Dist
+#=======================================================================
+
+loop_
+ _geom_bond_atom_site_label_1
+ _geom_bond_atom_site_label_2
+ _geom_bond_site_symmetry_1
+ _geom_bond_site_symmetry_2
+ _geom_bond_distance
+ _geom_bond_publ_flag
+  Ti1 S1 . 25_444 2.4531(12) ?
+  Ti1 S1 . 25_544 2.4531(12) ?
+  Ti1 S1 . 25_554 2.4531(12) ?
+  Ti1 S1 . 16_445 2.4531(12) ?
+  Ti1 S1 . 16_455 2.4531(12) ?
+  Ti1 S1 . 16_555 2.4531(12) ?
+  Na1 S1 . 25_444 2.9521(16) ?
+  Na1 S1 . 25_544 2.9521(16) ?
+  Na1 S1 . 25_554 2.9521(16) ?
+  Na1 S1 . 28_445 2.9521(16) ?
+  Na1 S1 . 28_545 2.9521(16) ?
+  Na1 S1 . 28_555 2.9521(16) ?
+
+loop_
+ _geom_angle_atom_site_label_1
+ _geom_angle_atom_site_label_2
+ _geom_angle_atom_site_label_3
+ _geom_angle_site_symmetry_1
+ _geom_angle_site_symmetry_2
+ _geom_angle_site_symmetry_3
+ _geom_angle
+ _geom_angle_publ_flag
+  S1 Ti1 S1 25_444 . 25_544 90.59(4) ?
+  S1 Ti1 S1 25_444 . 25_554 90.59(4) ?
+  S1 Ti1 S1 25_444 . 16_445 89.41(4) ?
+  S1 Ti1 S1 25_444 . 16_455 89.41(4) ?
+  S1 Ti1 S1 25_444 . 16_555 180 ?
+  S1 Ti1 S1 25_544 . 25_554 90.59(4) ?
+  S1 Ti1 S1 25_544 . 16_445 89.41(4) ?
+  S1 Ti1 S1 25_544 . 16_455 180 ?
+  S1 Ti1 S1 25_544 . 16_555 89.41(4) ?
+  S1 Ti1 S1 25_554 . 16_445 180 ?
+  S1 Ti1 S1 25_554 . 16_455 89.41(4) ?
+  S1 Ti1 S1 25_554 . 16_555 89.41(4) ?
+  S1 Ti1 S1 16_445 . 16_455 90.59(4) ?
+  S1 Ti1 S1 16_445 . 16_555 90.59(4) ?
+  S1 Ti1 S1 16_455 . 16_555 90.59(4) ?
+  S1 Na1 S1 25_444 . 25_544 72.40(3) ?
+  S1 Na1 S1 25_444 . 25_554 72.40(3) ?
+  S1 Na1 S1 25_444 . 28_445 94.00(4) ?
+  S1 Na1 S1 25_444 . 28_545 140.125(16) ?
+  S1 Na1 S1 25_444 . 28_555 140.125(16) ?
+  S1 Na1 S1 25_544 . 25_554 72.40(3) ?
+  S1 Na1 S1 25_544 . 28_445 140.125(16) ?
+  S1 Na1 S1 25_544 . 28_545 94.00(4) ?
+  S1 Na1 S1 25_544 . 28_555 140.125(16) ?
+  S1 Na1 S1 25_554 . 28_445 140.125(16) ?
+  S1 Na1 S1 25_554 . 28_545 140.125(16) ?
+  S1 Na1 S1 25_554 . 28_555 94.00(4) ?
+  S1 Na1 S1 28_445 . 28_545 72.40(3) ?
+  S1 Na1 S1 28_445 . 28_555 72.40(3) ?
+  S1 Na1 S1 28_545 . 28_555 72.40(3) ?

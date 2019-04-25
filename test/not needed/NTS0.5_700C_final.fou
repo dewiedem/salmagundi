@@ -1,0 +1,220 @@
+Program for n-dimensional Fourier synthesis                                                                         page=  1
+structure : Na0.5TiS2 at 700 C                                                                             14:16:55 16-04-19 
+
+The following lines were read as a control data : 
+=>addbord 0 maptype 6 step 0.05<=                                                    
+
+************************
+* Structure data - NTS *
+************************
+
+Cell parameters       :     3.4872    3.4872   21.3635    90.000    90.000   120.000    Volume :      225.0
+Reciprocal parameters :   0.331129  0.331129  0.046809    90.000    90.000    60.000    Volume :   0.004445
+
+Centrosymmetric space group: R-3m  Number : 166
+
+List of centring vectors:
+
+  0.000000  0.000000  0.000000
+  0.666667  0.333333  0.333333
+  0.333333  0.666667  0.666667
+
+Symmetry operators:
+
+     x    y    z
+    -y    x-y  z
+    -x+y -x    z
+     y    x   -z
+     x-y -y   -z
+    -x   -x+y -z
+    -x   -y   -z
+     y   -x+y -z
+     x-y  x   -z
+    -y   -x    z
+    -x+y  y    z
+     x    x-y  z
+
+Neutron scattering lengths
+
+Na             3.630   0.000
+S              2.847   0.000
+Ti            -3.438   0.000
+
+
+Type of map : F(obs)-F(cal) - difference Fourier
+
+Weighting of reflection based on chi-square will be applied
+
+Limits of sin(th)/lambda for acceptance are :   0.000000 10.000000
+
+Scope of the map :
+x1 from  0.0000 to  0.9857 step 0.0143
+x2 from  0.0000 to  0.9857 step 0.0143
+x3 from  0.0000 to  0.9977 step 0.0023
+
+Orientation : 123
+Program for n-dimensional Fourier synthesis                                                                         page=  2
+structure : Na0.5TiS2 at 700 C                                                                             14:16:55 16-04-19 
+
+
+The calculation will performed  by modified Beevers-Lipson algorithm
+
+Maximal density : 0.13, minimal density : -0.17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Program for n-dimensional Fourier synthesis                                                                         page=  3
+structure : Na0.5TiS2 at 700 C                                                                             14:16:55 16-04-19 
+
+
+Searching for positive peaks - maximum number of peaks to be found :  10
+
+The list of positive peaks written to the m40  file
+
+        x      y      z     charge      rho   rel                        x      y      z     charge      rho   rel              
+
+  1. 0.3357 0.6714 0.1172    0.05      0.13  1019                  6. 0.6643 0.3357 0.0276    0.03      0.05   611              
+  2. 0.7894 0.1979 0.0101    0.04      0.08   815                  7. 0.0000 0.0000 0.1613    0.03      0.10   611              
+  3. 0.2286 0.1143 0.0425    0.04      0.08   815                  8. 0.3286 0.6643 0.0272    0.02      0.09   408              
+  4. 0.6643 0.3357 0.1237    0.04      0.09   815                  9. 0.3391 0.1714 0.1662    0.02      0.07   408              
+  5. 0.0571 0.1123 0.0727    0.04      0.06   815                 10. 0.6643 0.3357 0.0575    0.01      0.03   204              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Program for n-dimensional Fourier synthesis                                                                         page=  4
+structure : Na0.5TiS2 at 700 C                                                                             14:16:55 16-04-19 
+
+
+Searching for negative peaks - maximum number of peaks to be found :  10
+
+The list of negative peaks written to the m40  file
+
+        x      y      z     charge      rho   rel                        x      y      z     charge      rho   rel              
+
+  1. 0.1214 0.2406 0.1444   -0.05     -0.11  -963                  6. 0.3357 0.6714 0.0592   -0.03     -0.17  -578              
+  2. 0.1597-0.0025 0.0060   -0.04     -0.08  -771                  7. 0.3859 0.1638 0.0606   -0.02     -0.07  -385              
+  3. 0.9020 0.0834 0.0054   -0.04     -0.08  -771                  8. 0.0849 0.5429 0.0186   -0.02     -0.07  -385              
+  4. 0.5322 0.1599 0.3388   -0.04     -0.08  -771                  9. 0.0638 0.5286 0.1059   -0.02     -0.09  -385              
+  5. 0.6714 0.3357 0.0943   -0.03     -0.16  -578                 10. 0.0000 0.0000 0.0313   -0.02     -0.06  -385              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

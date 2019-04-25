@@ -1,0 +1,220 @@
+Calculating of distances, angles, torsion angles and best planes                                                    page=  1
+structure : Na0.5TiS2 at 700 C                                                                             14:16:52 16-04-19 
+
+
+************************
+* Structure data - NTS *
+************************
+
+Cell parameters       :     3.4872    3.4872   21.3635    90.000    90.000   120.000    Volume :      225.0
+Reciprocal parameters :   0.331129  0.331129  0.046809    90.000    90.000    60.000    Volume :   0.004445
+
+Centrosymmetric space group: R-3m  Number : 166
+
+List of centring vectors:
+
+  0.000000  0.000000  0.000000
+  0.666667  0.333333  0.333333
+  0.333333  0.666667  0.666667
+
+Symmetry operators:
+
+     x    y    z
+    -y    x-y  z
+    -x+y -x    z
+     y    x   -z
+     x-y -y   -z
+    -x   -x+y -z
+    -x   -y   -z
+     y   -x+y -z
+     x-y  x   -z
+    -y   -x    z
+    -x+y  y    z
+     x    x-y  z
+
+Neutron scattering lengths
+
+Na             3.630   0.000
+S              2.847   0.000
+Ti            -3.438   0.000
+
+The following lines were read as a control data : 
+=>angles 1 lsttype 1 expdmax 10<=                                                    
+=>selfirst Ti1 Na1<=                                                                 
+=>selsecnd S1<=                                                                      
+
+Input e.s.d of fraction coordinates of atoms included
+
+
+                                      fractional                                    cartesian
+ no  atom             xf        yf        zf     sigxf     sigyf     sigzf        x        y        z      Uiso
+  1  Ti1     + -  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000   0.0000   0.0000   0.0000 0.035147( 1221)
+  2  Na1     + -  0.000000  0.000000  0.166667  0.000000  0.000000  0.000000   0.0000   0.0000   3.5606 0.152611( 5344)
+  3  S1      - +  0.000000  0.000000  0.398937  0.000000  0.000000  0.000102   0.0000   0.0000   8.5227 0.030830(  880)
+
+
+Calculating of distances, angles, torsion angles and best planes                                                    page=  2
+structure : Na0.5TiS2 at 700 C                                                                             14:16:52 16-04-19 
+
+
+********************************
+* List of distances and angles *
+********************************
+
+
+Full coordination of atoms will be printed
+The results will be printed in one column with symmetry codes
+
+Distances and angles will be calculated from d(min)=   0.000 to specific maximal distances as listed below expanded by 10%:
+
+Na-Na 3.820 R     Na-S  2.952 T     Na-Ti 3.380 R
+S-S   2.080 R     S-Ti  2.425 T
+Ti-Ti 2.940 R
+
+T ... typical distances taken either from the file distributed with Jana program or defined by user
+R ... distance as derived from atomic radii:
+
+                                             Atom type    Atom radius
+                                               Na             1.910
+                                               S              1.040
+                                               Ti             1.470
+
+Distances and angles concerning atom Ti1     
+=============================================
+Ti1-S1            2.4531(12)                   2nd: S1#c3t-1,-1,-1          x-2/3,y-1/3,z-1/3
+     S1-Ti1-S1                 90.59(4)        3rd: S1#c3t0,-1,-1           x+1/3,y-1/3,z-1/3
+     S1-Ti1-S1                 90.59(4)        3rd: S1#c3t0,0,-1            x+1/3,y+2/3,z-1/3
+     S1-Ti1-S1                 89.41(4)        3rd: S1#s4c2t-1,-1,0         y-1/3,x-2/3,-z+1/3
+     S1-Ti1-S1                 89.41(4)        3rd: S1#s4c2t-1,0,0          y-1/3,x+1/3,-z+1/3
+     S1-Ti1-S1                 180             3rd: S1#s4c2                 y+2/3,x+1/3,-z+1/3
+Ti1-S1            2.4531(12)                   2nd: S1#c3t0,-1,-1           x+1/3,y-1/3,z-1/3
+     S1-Ti1-S1                 90.59(4)        3rd: S1#c3t0,0,-1            x+1/3,y+2/3,z-1/3
+     S1-Ti1-S1                 89.41(4)        3rd: S1#s4c2t-1,-1,0         y-1/3,x-2/3,-z+1/3
+     S1-Ti1-S1                 180             3rd: S1#s4c2t-1,0,0          y-1/3,x+1/3,-z+1/3
+     S1-Ti1-S1                 89.41(4)        3rd: S1#s4c2                 y+2/3,x+1/3,-z+1/3
+Ti1-S1            2.4531(12)                   2nd: S1#c3t0,0,-1            x+1/3,y+2/3,z-1/3
+     S1-Ti1-S1                 180             3rd: S1#s4c2t-1,-1,0         y-1/3,x-2/3,-z+1/3
+     S1-Ti1-S1                 89.41(4)        3rd: S1#s4c2t-1,0,0          y-1/3,x+1/3,-z+1/3
+     S1-Ti1-S1                 89.41(4)        3rd: S1#s4c2                 y+2/3,x+1/3,-z+1/3
+Ti1-S1            2.4531(12)                   2nd: S1#s4c2t-1,-1,0         y-1/3,x-2/3,-z+1/3
+     S1-Ti1-S1                 90.59(4)        3rd: S1#s4c2t-1,0,0          y-1/3,x+1/3,-z+1/3
+     S1-Ti1-S1                 90.59(4)        3rd: S1#s4c2                 y+2/3,x+1/3,-z+1/3
+Ti1-S1            2.4531(12)                   2nd: S1#s4c2t-1,0,0          y-1/3,x+1/3,-z+1/3
+     S1-Ti1-S1                 90.59(4)        3rd: S1#s4c2                 y+2/3,x+1/3,-z+1/3
+Ti1-S1            2.4531(12)                   2nd: S1#s4c2                 y+2/3,x+1/3,-z+1/3
+------------------------------------------------------------------------------------------------------------------------------
+Distances and angles concerning atom Na1     
+=============================================
+Na1-S1            2.9521(16)                   2nd: S1#c3t-1,-1,-1          x-2/3,y-1/3,z-1/3
+     S1-Na1-S1                 72.40(3)        3rd: S1#c3t0,-1,-1           x+1/3,y-1/3,z-1/3
+     S1-Na1-S1                 72.40(3)        3rd: S1#c3t0,0,-1            x+1/3,y+2/3,z-1/3
+Calculating of distances, angles, torsion angles and best planes                                                    page=  3
+structure : Na0.5TiS2 at 700 C                                                                             14:16:52 16-04-19 
+
+     S1-Na1-S1                 94.00(4)        3rd: S1#s4c3t-1,-1,0         y-2/3,x-1/3,-z+2/3
+     S1-Na1-S1                 140.125(16)     3rd: S1#s4c3t0,-1,0          y+1/3,x-1/3,-z+2/3
+     S1-Na1-S1                 140.125(16)     3rd: S1#s4c3                 y+1/3,x+2/3,-z+2/3
+Na1-S1            2.9521(16)                   2nd: S1#c3t0,-1,-1           x+1/3,y-1/3,z-1/3
+     S1-Na1-S1                 72.40(3)        3rd: S1#c3t0,0,-1            x+1/3,y+2/3,z-1/3
+     S1-Na1-S1                 140.125(16)     3rd: S1#s4c3t-1,-1,0         y-2/3,x-1/3,-z+2/3
+     S1-Na1-S1                 94.00(4)        3rd: S1#s4c3t0,-1,0          y+1/3,x-1/3,-z+2/3
+     S1-Na1-S1                 140.125(16)     3rd: S1#s4c3                 y+1/3,x+2/3,-z+2/3
+Na1-S1            2.9521(16)                   2nd: S1#c3t0,0,-1            x+1/3,y+2/3,z-1/3
+     S1-Na1-S1                 140.125(16)     3rd: S1#s4c3t-1,-1,0         y-2/3,x-1/3,-z+2/3
+     S1-Na1-S1                 140.125(16)     3rd: S1#s4c3t0,-1,0          y+1/3,x-1/3,-z+2/3
+     S1-Na1-S1                 94.00(4)        3rd: S1#s4c3                 y+1/3,x+2/3,-z+2/3
+Na1-S1            2.9521(16)                   2nd: S1#s4c3t-1,-1,0         y-2/3,x-1/3,-z+2/3
+     S1-Na1-S1                 72.40(3)        3rd: S1#s4c3t0,-1,0          y+1/3,x-1/3,-z+2/3
+     S1-Na1-S1                 72.40(3)        3rd: S1#s4c3                 y+1/3,x+2/3,-z+2/3
+Na1-S1            2.9521(16)                   2nd: S1#s4c3t0,-1,0          y+1/3,x-1/3,-z+2/3
+     S1-Na1-S1                 72.40(3)        3rd: S1#s4c3                 y+1/3,x+2/3,-z+2/3
+Na1-S1            2.9521(16)                   2nd: S1#s4c3                 y+1/3,x+2/3,-z+2/3
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Calculating of distances, angles, torsion angles and best planes                                                    page=  4
+structure : Na0.5TiS2 at 700 C                                                                             14:16:52 16-04-19 
+
+
+******************
+* Hirshfeld test *
+******************
+
+There were no bonds violating Hirshfeld condition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

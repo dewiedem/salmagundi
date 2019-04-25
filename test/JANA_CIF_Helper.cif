@@ -1,0 +1,16 @@
+#\#CIF_2.0
+
+data_global
+
+loop_
+  _audit_conform_dict_name
+  _audit_conform_dict_version
+  _audit_conform_dict_location
+         cif_core.dic        2.4.5     ftp://ftp.iucr.org/pub/cif_core.dic     
+         cif_pd.dic          1.0.1     ftp://ftp.iucr.org/pub/cif_pd.dic 
+_audit_creation_method                  'JANA CIF Helper v.0.1.0'
+_audit_creation_date                    2019-04-25
+_reflns_threshold_expression            I>3\s(I)
+_refine_ls_structure_factor_coef        Inet
+_refine_ls_matrix_type                  full
+_refine_ls_weighting_details            'w=1/[\s^2^(F~o~)+(0.01F~o~)^2^]'
