@@ -9,7 +9,30 @@ loop_
          cif_core.dic        2.4.5     ftp://ftp.iucr.org/pub/cif_core.dic     
          cif_pd.dic          1.0.1     ftp://ftp.iucr.org/pub/cif_pd.dic 
 _audit_creation_method                  'JANA CIF Helper v.0.1.0'
-_audit_creation_date                    2019-04-25
+_audit_creation_date                    2019-04-29
+_exptl_absorpt_correction_type          cylinder
+_exptl_absorpt_process_details          
+;
+correction for a cylindrical sample with \mR = 0.041 as implemented in JANA2006 (Pet\<r\'i\<cek et al., 2014)
+;
+_refine_ls_R_I_factor                   0.0464
+loop_
+  _pd_proc_info_excluded_regions
+         'from 0.05 to 7.50\%: '       
+         'from 158.00 to 160.11\%: ' 
+_pd_proc_ls_special_details             
+;
+zero-point correction: -11.78473
+;
+_pd_proc_ls_profile_function            
+;
+pseudo-Voigt profile according to Thompson, Cox & Hastings (1987): ;
+asymmetry correction according to Howard (1982): P =  17.42860
+;
+_pd_proc_ls_background_function         
+;
+manual background (visual estimation, unrefined) interpolated by 10 Legendre polynomials (1st: , 2nd: 0.00, 3rd: 0.00, 4th: 0.00, 5th: 0.00, 6th: 0.00, 7th: 0.00, 8th: 0.00, 9th: 0.00, 10th: 0.00)
+;
 _reflns_threshold_expression            I>3\s(I)
 _refine_ls_structure_factor_coef        Inet
 _refine_ls_matrix_type                  full
