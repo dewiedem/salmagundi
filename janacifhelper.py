@@ -130,7 +130,8 @@ with open(name_m41, 'r') as read_file:
             break
     while not line.startswith('# Shift parameters'):
         line = read_file.readline()
-    shift = dict(zip(['zero', 'sycos', 'sysin'], read_file.readline().split()[0:3]))  # TODO: not split, 9 numbers
+    # TODO: do not split, read nine fixed-length numbers
+    shift = dict(zip(['zero', 'sycos', 'sysin'], read_file.readline().split()[0:3]))
     while not line.startswith('# Asymmetry'):
         line = read_file.readline()
     if select['asymm'] == '1':
@@ -185,6 +186,7 @@ for region in skipped:
 
 pd_proc_ls_special_details = '\n'
 if shift['zero'] != '0.000000':
+    # TODO: write value with s.u. here
     pd_proc_ls_special_details += 'zero-point correction: ' + shift['zero']
 cif_block['_pd_proc_ls_special_details'] = pd_proc_ls_special_details
 
@@ -193,7 +195,8 @@ if phase_select[PHASE_NUMBER-1]['proffun'] == '3':
     _pd_proc_ls_profile_function += 'pseudo-Voigt profile according to Thompson, Cox & Hastings (1987): '
 # pseudo-Voigt profile according to Thompson, Cox & Hastings (1987): G~U~ =, G~V~ =, G~W~ =, L~X~ =, L~Y~ = 0;
 if select['asymm'] == '1':
-    _pd_proc_ls_profile_function += ';\nasymmetry correction according to Howard (1982): P = ' + asymm  # TODO: value with esd
+    # TODO: write value with s.u. here
+    _pd_proc_ls_profile_function += ';\nasymmetry correction according to Howard (1982): P = ' + asymm
 cif_block['_pd_proc_ls_profile_function'] = _pd_proc_ls_profile_function
 
 _pd_proc_ls_background_function = '\n'
@@ -204,7 +207,8 @@ if select['manbckg'] == '1' and select['bckgtype'] == '1':
 if select['bckgtype'] == '1':
     _pd_proc_ls_background_function += select['bckgnum'] + ' Legendre polynomials (1st: '
 for i in range(2, int(select['bckgnum']) + 1):
-    _pd_proc_ls_background_function += ', {:s}: '.format(ordinal(i)) + '0.00'  # TODO: actual values
+    # TODO: write actual values
+    _pd_proc_ls_background_function += ', {:s}: '.format(ordinal(i)) + '0.00'
 _pd_proc_ls_background_function += ')'
 cif_block['_pd_proc_ls_background_function'] = _pd_proc_ls_background_function
 print(' Done.')
