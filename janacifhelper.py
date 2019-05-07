@@ -49,33 +49,6 @@ class Suppressor(object):
     def write(self, x): pass
 
 
-def rnd_sigfig(value, digits):
-    """Round a value to a number of significant digits.
-
-    :param value: value to be rounded
-    :type value: float
-    :param digits: number of significant digits to round to
-    :type digits: int
-    :return: float
-    """
-
-    return round(value, -int(math.floor(math.log10(abs(value))) - (digits - 1)))
-
-
-def rnd_iucr(avg, su):
-    """Round a value according to IUCr rules.
-
-    :param avg: average or central value
-    :type avg: float
-    :param su: standard uncertainty or error
-    :type su: float
-    :return: rounded value in short notation
-    :rtype: str
-    """
-
-    pass
-
-
 def ordinal(n):
     """Return an ordinal number representation for a given cardinal.
 
@@ -88,8 +61,42 @@ def ordinal(n):
     return '%d%s' % (n, 'tsnrhtdd'[(math.floor(n // 10) % 10 != 1) * (n % 10 < 4) * n % 10::4])
 
 
+def iucr_string(values):
+    """Convert a central value (average) and its s.u. into an IUCr compliant number representation.
+
+    :param values: pair of central value (average) and s.u.
+    :type values: tuple((float, float))
+    :return: IUCr compliant representation
+    :rtype: str
+    """
+    sig_pos = math.floor(math.log10(abs(values[1])))  # position of first significant digit
+    sig_3 = math.trunc(values[1] * 10 ** (2 - sig_pos)) / 10 ** (2 - sig_pos)  # first three significant digits of s.u.
+    sig_3 *= 10 ** -(sig_pos + 1)  # s.u. moved directly behind decimal separator (final range: 0.100-0.999)
+
+    if sig_3 < 0.195:  # round to two digits (final s.u. range: 0.10-0.19)
+        su = round(values[1], 1 - sig_pos)
+        avg = round(values[0], 1 - sig_pos)
+        sig_len = 2
+    elif sig_3 < 0.950:  # round to one digit (final s.u. range: 0.2-0.9)
+        su = round(values[1], -sig_pos)
+        avg = round(values[0], -sig_pos)
+        sig_len = 1
+    else:  # round to two digits and move forward (final s.u.: 0.10)
+        su = 0.10
+        avg = round(values[0], -1 - sig_pos)
+        sig_len = 2
+
+    if sig_pos > 0:  # only integral part for s.u. >= 1.95
+        avg_str = ('{:' + str(sig_pos) + '.0f}').format(avg).strip()
+        su_str = ('{:' + str(sig_pos) + '.0f}').format(abs(su))
+    else:  # fractional and possibly integral part for s.u. < 1.95
+        avg_str = ('{:.' + str(-sig_pos + sig_len - 1) + 'f}').format(avg)
+        su_str = '{:.0f}'.format(abs(su / 10 ** (sig_pos - sig_len + 1)))
+    return '{:s}({:s})'.format(avg_str, su_str)
+
+
 # Parse arguments
-parser = argparse.ArgumentParser(description='Covert parameters from JANA2006 output into standardized CIF items.')
+parser = argparse.ArgumentParser(description='Convert parameters from JANA2006 output into standardized CIF items.')
 parser.add_argument('input', metavar='input file', type=argparse.FileType('rb'),
                     help='name of the input *.ref or *.m41 file')
 parser.add_argument('-v', '--version', action='version', version=__version__)
@@ -205,8 +212,8 @@ print(' Done.')
 # Store static items
 cif_block['_reflns_threshold_expression'] = 'I>3\\s(I)'
 cif_block['_refine_ls_structure_factor_coef'] = 'Inet'
-cif_block['_refine_ls_matrix_type'] = 'full'
-cif_block['_refine_ls_weighting_details'] = 'w=1/[\\s^2^(F~o~)+(0.01F~o~)^2^]'  # TODO: wrong!
+cif_block['_refine_ls_matrix_type'] = 'fullcycle'
+cif_block['_refine_ls_weighting_details'] = 'w=1/[\\s^2^(I)+(0.01*I)^2^]'
 
 # Output CIF
 print('Writing to %s ...' % OUTPUT_FILENAME, end='')
