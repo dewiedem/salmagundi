@@ -28,10 +28,10 @@ __maintainer__ = 'Dennis Wiedemann'
 __email__ = 'dennis.wiedemann@chem.tu-berlin.de'
 __status__ = 'Development'
 
-OUTPUT_FILENAME = 'JANA_CIF_Helper.cif'  # Name of the output CIF file
-BLOCK_NAME = 'global'                    # Name of the CIF data block to store information in
-PHASE_NUMBER = 1                         # Number of phase to put information out on
-NUM_LEN = 9                              # Length of numbers (in characters) stored in *.m41
+OUTPUT_FILE_ADDITION = '_add.cif'  # Extension of the output CIF file
+BLOCK_NAME = 'global'              # Name of the CIF data block to store information in
+PHASE_NUMBER = 1                   # Number of phase to put information out on
+NUM_LEN = 9                        # Length of numbers (in characters) stored in *.m41
 
 
 class Suppressor(object):
@@ -131,7 +131,7 @@ args = parser.parse_args()
 name_stem = os.path.splitext(args.input.name)[0]
 name_m41 = name_stem + '.m41'
 name_ref = name_stem + '.ref'
-name_cif = os.path.join(os.path.split(name_stem)[0], OUTPUT_FILENAME)
+name_cif = name_stem + OUTPUT_FILE_ADDITION
 
 # Greeting
 print("Hiiieee! My name is yours, what's JANA CIF Helper?\n")
@@ -140,21 +140,21 @@ print("Hiiieee! My name is yours, what's JANA CIF Helper?\n")
 print('Reading from *.m41 ...', end='')
 skipped = []
 phase_select = []
+select = {}
 with open(name_m41, 'r') as read_file:
 
     # Read header values (selections)
     for line in read_file:
-        if line.startswith('bckgtype'):
-            select = dict(zip(line.split()[::2], line.split()[1::2]))
-        elif line.startswith('absor'):
-            select.update(zip(line.split()[::2], line.split()[1::2]))
-        elif line.startswith('skipfrto'):
+        if line.startswith('skipfrto'):
             skipped.append((line.split()[1], line.split()[2]))
         elif line.startswith('phase'):
             line = read_file.readline() + read_file.readline()
             phase_select.append(dict(zip(line.split()[::2], line.split()[1::2])))
         elif line.startswith('end'):
             break
+        else:
+            select.update(zip(line.split()[::2], line.split()[1::2]))
+    print(select)
 
     # Read shift parameters
     while not line.startswith('# Shift'):
@@ -268,8 +268,8 @@ cif_block['_audit_creation_date'] = datetime.datetime.now().strftime('%Y-%m-%d')
 # Store extracted items
 if select['absor'] == '1':
     cif_block['_exptl_absorpt_correction_type'] = 'cylinder'
-    cif_block['_exptl_absorpt_process_details'] = '\ncorrection for a cylindrical sample with \\mR = 0.041 as ' \
-                                                  'implemented in JANA2006 (Pet\\<r\\\'i\\<cek et al., 2014)'
+    cif_block['_exptl_absorpt_process_details'] = '\ncorrection for a cylindrical sample with \\mR = ' + select['mir'] \
+                                                  + ' as implemented in JANA2006 (Pet\\<r\\\'i\\<cek et al., 2014)'
 
 cif_block['_refine_ls_R_I_factor'] = '{:2.4f}'.format(rb_obs / 100)
 
@@ -330,7 +330,7 @@ cif_block['_refine_ls_matrix_type'] = 'fullcycle'
 cif_block['_refine_ls_weighting_details'] = 'w=1/[\\s^2^(I)+(0.01*I)^2^]'
 
 # Output CIF
-print('Writing to %s ...' % OUTPUT_FILENAME, end='')
+print('Writing to %s ...' % name_cif, end='')
 with open(name_cif, 'w') as write_file, Suppressor():
     write_file.write(cif.WriteOut())
 print(' Done.')
