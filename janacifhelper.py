@@ -23,7 +23,7 @@ __author__ = 'Dennis Wiedemann'
 __copyright__ = 'Copyright 2019, Dr. Dennis Wiedemann'
 __credits__ = ['Dennis Wiedemann']
 __license__ = 'MIT'
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 __maintainer__ = 'Dennis Wiedemann'
 __email__ = 'dennis.wiedemann@chem.tu-berlin.de'
 __status__ = 'Development'
@@ -154,7 +154,6 @@ with open(name_m41, 'r') as read_file:
             break
         else:
             select.update(zip(line.split()[::2], line.split()[1::2]))
-    print(select)
 
     # Read shift parameters
     while not line.startswith('# Shift'):
@@ -245,6 +244,8 @@ with open(name_ref, 'r') as read_file:
                 while line != '\n':
                     line_old = line
                     line = read_file.readline()
+                n_obs = int(line_old.split()[5])
+                n_all = int(line_old.split()[6])
                 rb_obs = float(line_old.split()[9])
 print(' Done.')
 
@@ -271,6 +272,8 @@ if select['absor'] == '1':
     cif_block['_exptl_absorpt_process_details'] = '\ncorrection for a cylindrical sample with \\mR = ' + select['mir'] \
                                                   + ' as implemented in JANA2006 (Pet\\<r\\\'i\\<cek et al., 2014)'
 
+cif_block['_reflns_number_gt'] = '{:d}'.format(n_obs)
+cif_block['_reflns_number_total'] = '{:d}'.format(n_all)
 cif_block['_refine_ls_R_I_factor'] = '{:2.4f}'.format(rb_obs / 100)
 
 skipped_string = []
@@ -281,7 +284,8 @@ for region in skipped:
 
 pd_proc_ls_special_details = '\n'
 if shift['zero'] != '0.000000':
-    pd_proc_ls_special_details = 'zero-point correction: ' + iucr_string((shift['zero'], shift_su['zero']))
+    pd_proc_ls_special_details = 'zero-point correction: ' + iucr_string((shift['zero'] / 100, shift_su['zero'] / 100))\
+                                 + '\\%'
 cif_block['_pd_proc_ls_special_details'] = pd_proc_ls_special_details
 
 _pd_proc_ls_profile_function = '\n'
