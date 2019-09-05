@@ -1,4 +1,4 @@
-#!/usr/bin/env Python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """A program to provide some CIF items from standard JANA2006 output.
 
@@ -23,14 +23,14 @@ __author__ = 'Dennis Wiedemann'
 __copyright__ = 'Copyright 2019, Dr. Dennis Wiedemann'
 __credits__ = ['Dennis Wiedemann']
 __license__ = 'MIT'
-__version__ = '0.2.0'
+__version__ = '0.3.0'
 __maintainer__ = 'Dennis Wiedemann'
 __email__ = 'dennis.wiedemann@chem.tu-berlin.de'
 __status__ = 'Development'
 
 OUTPUT_FILE_ADDITION = '_add.cif'  # Extension of the output CIF file
 BLOCK_NAME = 'global'              # Name of the CIF data block to store information in
-PHASE_NUMBER = 1                   # Number of phase to put information out on
+PHASE_NUMBER = 1                   # Number of phase to put information out on, meaningless for single-phase refinements
 NUM_LEN = 9                        # Length of numbers (in characters) stored in *.m41
 
 
@@ -141,6 +141,8 @@ print('Reading from *.m41 ...', end='')
 skipped = []
 phase_select = []
 select = {}
+is_multi_phase = False
+
 with open(name_m41, 'r') as read_file:
 
     # Read header values (selections)
@@ -148,6 +150,7 @@ with open(name_m41, 'r') as read_file:
         if line.startswith('skipfrto'):
             skipped.append((line.split()[1], line.split()[2]))
         elif line.startswith('phase'):
+            is_multi_phase = True
             line = read_file.readline() + read_file.readline()
             phase_select.append(dict(zip(line.split()[::2], line.split()[1::2])))
         elif line.startswith('end'):
@@ -177,7 +180,7 @@ with open(name_m41, 'r') as read_file:
         asymm = nibble_numbers(read_file.readline(), 1)[0]
 
     # Read profile parameters
-    phase_count = 0
+    phase_count = 0 if is_multi_phase else PHASE_NUMBER
     profile = {}
     while not phase_count == PHASE_NUMBER:
         line = read_file.readline()
@@ -215,7 +218,7 @@ with open(name_m41, 'r') as read_file:
         asymm_su = nibble_numbers(read_file.readline(), 1)[0]
 
     # Read profile s.u.'s
-    phase_count = 0
+    phase_count = 0 if is_multi_phase else PHASE_NUMBER
     profile_su = {}
     while not phase_count == PHASE_NUMBER:
         line = read_file.readline()
@@ -289,7 +292,8 @@ if shift['zero'] != '0.000000':
 cif_block['_pd_proc_ls_special_details'] = pd_proc_ls_special_details
 
 _pd_proc_ls_profile_function = '\n'
-if phase_select[PHASE_NUMBER - 1]['proffun'] == '3':
+proffun = phase_select[PHASE_NUMBER - 1]['proffun'] if is_multi_phase else select['proffun']
+if proffun == '3':
     _pd_proc_ls_profile_function += 'pseudo-Voigt profile according to Thompson, Cox & Hastings (1987): G~U~ = '
     _pd_proc_ls_profile_function += '0' if profile['GU'] == 0.0 else iucr_string((profile['GU'], profile_su['GU']))
     _pd_proc_ls_profile_function += ', G~V~ = '
