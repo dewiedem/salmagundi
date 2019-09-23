@@ -260,6 +260,7 @@ cif_block = cif[BLOCK_NAME]
 
 # Set variables
 cif.header_comment = ''
+cif.set_grammar('1.1')
 
 # Store introductory items
 cif_block['_audit_conform_dict_name'] = ['cif_core.dic', 'cif_pd.dic']
